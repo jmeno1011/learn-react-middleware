@@ -1,11 +1,21 @@
-import { handleActions } from "redux-actions";
-import { createAction } from "redux-actions";
+import { handleActions, createAction } from "redux-actions";
 
 const INCREASE = "counter/INCREASE";
 const DECREASE = "counter/DECREASE";
 
 export const increase = createAction(INCREASE);
+// 1초 뒤에 increase를 디스패치함
+export const increaseAsync = () => (dispatch) => {
+  setTimeout(() => {
+    dispatch(increase());
+  }, 1000);
+};
 export const decrease = createAction(DECREASE);
+export const decreaseAsync = () => (dispatch) => {
+  setTimeout(() => {
+    dispatch(decrease());
+  }, 1000);
+};
 
 const initialState = 0;
 
