@@ -6,7 +6,6 @@ import {
   increaseAsync,
   decreaseAsync,
 } from "../modules/counter";
-
 // const CounterContainer = ({ number, increase, decrease }) => {
 const CounterContainer = ({
   number,
