@@ -26,7 +26,7 @@ export const getPost = (id) => async (dispatch) => {
   }
 };
 
-export const getUsers = (id) => async (dispatch) => {
+export const getUsers = () => async (dispatch) => {
   dispatch({ type: GET_USERS });
   try {
     const response = await api.getUsers();
@@ -71,7 +71,7 @@ const sample = handleActions(
       },
       post: action.payload,
     }),
-    [GET_POST_FAILURE]: (state) => ({
+    [GET_POST_FAILURE]: (state, action) => ({
       ...state,
       loading: {
         ...state.loading,
@@ -93,7 +93,7 @@ const sample = handleActions(
       },
       users: action.payload,
     }),
-    [GET_USERS_FAILURE]: (state) => ({
+    [GET_USERS_FAILURE]: (state, action) => ({
       ...state,
       loading: {
         ...state.loading,
